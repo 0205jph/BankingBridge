@@ -60,7 +60,7 @@ export default function Products() {
   ];
 
   return (
-    <div className="bg-white py-20">
+    <div className="bg-gradient-to-br from-blue-50 via-white to-green-50 py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h1 className="text-4xl font-bold text-bank-blue-800 mb-6">Products & Services</h1>

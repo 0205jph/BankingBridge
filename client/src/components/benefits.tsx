@@ -77,7 +77,7 @@ export default function Benefits() {
   ];
 
   return (
-    <section id="benefits-section" className="py-20 bg-white">
+    <section id="benefits-section" className="py-20 bg-gradient-to-br from-green-50 via-white to-blue-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <h2 className="text-4xl font-bold text-bank-blue-800 mb-6">Why Choose SecureBank?</h2>

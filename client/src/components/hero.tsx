@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Eye, ArrowUp, CreditCard } from "lucide-react";
+import { ArrowUp, CreditCard } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -40,24 +40,25 @@ export default function Hero() {
           </div>
           
           <div className="hidden lg:block">
-            {/* Modern banking dashboard illustration */}
-            <div className="bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-8 shadow-2xl">
-              <div className="bg-white rounded-xl p-6 mb-4">
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-blue-800 font-semibold">Account Balance</h3>
-                  <Eye className="w-6 h-6 text-green-600" />
-                </div>
-                <div className="text-3xl font-bold text-blue-800 mb-2">$45,230.89</div>
-                <div className="text-green-600 text-sm">+2.5% from last month</div>
-              </div>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="bg-green-500 text-white rounded-xl p-4">
-                  <ArrowUp className="w-8 h-8 mb-2" />
-                  <div className="text-sm">Quick Transfer</div>
-                </div>
-                <div className="bg-blue-500 text-white rounded-xl p-4">
-                  <CreditCard className="w-8 h-8 mb-2" />
-                  <div className="text-sm">Pay Bills</div>
+            {/* Hand holding phone illustration */}
+            <div className="relative">
+              <div className="bg-white bg-opacity-10 backdrop-blur-sm rounded-2xl p-8 shadow-2xl">
+                <img 
+                  src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=400"
+                  alt="Hand holding smartphone with banking app"
+                  className="w-full h-80 object-cover rounded-xl shadow-lg"
+                />
+                <div className="absolute bottom-12 left-12 right-12">
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="bg-green-500 text-white rounded-xl p-4 bg-opacity-90 backdrop-blur-sm">
+                      <ArrowUp className="w-8 h-8 mb-2" />
+                      <div className="text-sm">Quick Transfer</div>
+                    </div>
+                    <div className="bg-blue-500 text-white rounded-xl p-4 bg-opacity-90 backdrop-blur-sm">
+                      <CreditCard className="w-8 h-8 mb-2" />
+                      <div className="text-sm">Pay Bills</div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

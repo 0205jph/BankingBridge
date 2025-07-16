@@ -67,8 +67,8 @@ export default function Navigation() {
                 href={item.href}
                 className={`px-3 py-2 font-medium transition-colors ${
                   location === item.href
-                    ? "text-bank-blue-800"
-                    : "text-gray-700 hover:text-bank-blue-600"
+                    ? "text-bank-blue-900"
+                    : "text-gray-700 hover:text-bank-blue-900"
                 }`}
               >
                 {item.name}
@@ -81,8 +81,8 @@ export default function Navigation() {
                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                 className={`px-3 py-2 font-medium flex items-center transition-colors ${
                   location === "/products"
-                    ? "text-bank-blue-800"
-                    : "text-gray-700 hover:text-bank-blue-600"
+                    ? "text-bank-blue-900"
+                    : "text-gray-700 hover:text-bank-blue-900"
                 }`}
               >
                 Products & Services
@@ -94,7 +94,7 @@ export default function Navigation() {
                   <div className="py-2">
                     <Link
                       href="/products"
-                      className="block px-4 py-2 text-gray-700 hover:bg-bank-blue-50 hover:text-bank-blue-600"
+                      className="block px-4 py-2 text-gray-700 hover:bg-bank-blue-50 hover:text-bank-blue-900"
                       onClick={() => setIsDropdownOpen(false)}
                     >
                       All Products & Services
@@ -104,7 +104,7 @@ export default function Navigation() {
                       <a
                         key={service}
                         href="#"
-                        className="block px-4 py-2 text-gray-700 hover:bg-bank-blue-50 hover:text-bank-blue-600"
+                        className="block px-4 py-2 text-gray-700 hover:bg-bank-blue-50 hover:text-bank-blue-900"
                         onClick={() => setIsDropdownOpen(false)}
                       >
                         {service}
@@ -140,8 +140,8 @@ export default function Navigation() {
                 href={item.href}
                 className={`block px-3 py-2 font-medium ${
                   location === item.href
-                    ? "text-bank-blue-800"
-                    : "text-gray-700 hover:text-bank-blue-600"
+                    ? "text-bank-blue-900"
+                    : "text-gray-700 hover:text-bank-blue-900"
                 }`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
@@ -151,7 +151,7 @@ export default function Navigation() {
             <div className="px-3 py-2">
               <Link
                 href="/products"
-                className="text-gray-700 hover:text-bank-blue-600 font-medium"
+                className="text-gray-700 hover:text-bank-blue-900 font-medium"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Products & Services
@@ -161,7 +161,7 @@ export default function Navigation() {
                   <a
                     key={service}
                     href="#"
-                    className="block py-1 text-gray-600 hover:text-bank-blue-600"
+                    className="block py-1 text-gray-600 hover:text-bank-blue-900"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {service}

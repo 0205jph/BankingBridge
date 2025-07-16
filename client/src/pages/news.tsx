@@ -47,7 +47,7 @@ export default function News() {
                 <p className="text-gray-800 mb-4">{article.excerpt}</p>
                 <div className="flex items-center justify-between">
                   <span className="text-gray-700 text-sm">{article.date}</span>
-                  <a href="#" className="text-bank-blue-600 hover:text-bank-blue-800 font-medium">Read More</a>
+                  <a href="#" className="text-bank-blue-600 hover:text-bank-blue-900 font-medium">Read More</a>
                 </div>
               </div>
             </article>

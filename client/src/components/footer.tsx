@@ -17,16 +17,16 @@ export default function Footer() {
               Your trusted partner in financial growth and security. Banking made simple, secure, and personal.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-blue-300 hover:text-white transition-colors">
+              <a href="#" className="text-blue-300 hover:text-green-300 transition-colors">
                 <Facebook className="w-6 h-6" />
               </a>
-              <a href="#" className="text-blue-300 hover:text-white transition-colors">
+              <a href="#" className="text-blue-300 hover:text-green-300 transition-colors">
                 <Twitter className="w-6 h-6" />
               </a>
-              <a href="#" className="text-blue-300 hover:text-white transition-colors">
+              <a href="#" className="text-blue-300 hover:text-green-300 transition-colors">
                 <Linkedin className="w-6 h-6" />
               </a>
-              <a href="#" className="text-blue-300 hover:text-white transition-colors">
+              <a href="#" className="text-blue-300 hover:text-green-300 transition-colors">
                 <Instagram className="w-6 h-6" />
               </a>
             </div>
@@ -36,12 +36,12 @@ export default function Footer() {
           <div>
             <h4 className="text-lg font-semibold mb-6">Services</h4>
             <ul className="space-y-3">
-              <li><a href="#" className="text-blue-200 hover:text-white transition-colors">Personal Banking</a></li>
-              <li><a href="#" className="text-blue-200 hover:text-white transition-colors">Business Banking</a></li>
-              <li><a href="#" className="text-blue-200 hover:text-white transition-colors">Investment Services</a></li>
-              <li><a href="#" className="text-blue-200 hover:text-white transition-colors">Mortgage & Loans</a></li>
-              <li><a href="#" className="text-blue-200 hover:text-white transition-colors">Credit Cards</a></li>
-              <li><a href="#" className="text-blue-200 hover:text-white transition-colors">Insurance</a></li>
+              <li><a href="#" className="text-blue-200 hover:text-green-300 transition-colors">Personal Banking</a></li>
+              <li><a href="#" className="text-blue-200 hover:text-green-300 transition-colors">Business Banking</a></li>
+              <li><a href="#" className="text-blue-200 hover:text-green-300 transition-colors">Investment Services</a></li>
+              <li><a href="#" className="text-blue-200 hover:text-green-300 transition-colors">Mortgage & Loans</a></li>
+              <li><a href="#" className="text-blue-200 hover:text-green-300 transition-colors">Credit Cards</a></li>
+              <li><a href="#" className="text-blue-200 hover:text-green-300 transition-colors">Insurance</a></li>
             </ul>
           </div>
 
@@ -49,12 +49,12 @@ export default function Footer() {
           <div>
             <h4 className="text-lg font-semibold mb-6">Support</h4>
             <ul className="space-y-3">
-              <li><a href="#" className="text-blue-200 hover:text-white transition-colors">Help Center</a></li>
-              <li><a href="#" className="text-blue-200 hover:text-white transition-colors">Contact Us</a></li>
-              <li><a href="#" className="text-blue-200 hover:text-white transition-colors">Branch Locator</a></li>
-              <li><a href="#" className="text-blue-200 hover:text-white transition-colors">ATM Locator</a></li>
-              <li><a href="#" className="text-blue-200 hover:text-white transition-colors">Security Center</a></li>
-              <li><a href="#" className="text-blue-200 hover:text-white transition-colors">Privacy Policy</a></li>
+              <li><a href="#" className="text-blue-200 hover:text-green-300 transition-colors">Help Center</a></li>
+              <li><a href="#" className="text-blue-200 hover:text-green-300 transition-colors">Contact Us</a></li>
+              <li><a href="#" className="text-blue-200 hover:text-green-300 transition-colors">Branch Locator</a></li>
+              <li><a href="#" className="text-blue-200 hover:text-green-300 transition-colors">ATM Locator</a></li>
+              <li><a href="#" className="text-blue-200 hover:text-green-300 transition-colors">Security Center</a></li>
+              <li><a href="#" className="text-blue-200 hover:text-green-300 transition-colors">Privacy Policy</a></li>
             </ul>
           </div>
 
@@ -88,9 +88,9 @@ export default function Footer() {
         <div className="border-t border-bank-blue-800 mt-12 pt-8 text-center">
           <p className="text-blue-200">
             &copy; 2024 SecureBank. All rights reserved. |{" "}
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a> |{" "}
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a> |{" "}
-            <a href="#" className="hover:text-white transition-colors">Accessibility</a>
+            <a href="#" className="hover:text-green-300 transition-colors">Terms of Service</a> |{" "}
+            <a href="#" className="hover:text-green-300 transition-colors">Privacy Policy</a> |{" "}
+            <a href="#" className="hover:text-green-300 transition-colors">Accessibility</a>
           </p>
         </div>
       </div>

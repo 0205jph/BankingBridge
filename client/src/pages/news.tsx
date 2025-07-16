@@ -27,8 +27,8 @@ export default function News() {
     <div className="bg-gradient-to-br from-blue-50 via-white to-green-50 py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h1 className="text-4xl font-bold text-bank-blue-800 mb-6">Banking News & Updates</h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <h1 className="text-4xl font-bold text-bank-blue-900 mb-6">Banking News & Updates</h1>
+          <p className="text-xl text-gray-800 max-w-3xl mx-auto">
             Stay informed with the latest banking news, regulatory updates, and financial insights.
           </p>
         </div>
@@ -43,10 +43,10 @@ export default function News() {
               />
               <div className="p-6">
                 <div className="text-green-600 text-sm font-semibold mb-2">{article.category}</div>
-                <h3 className="text-xl font-bold text-bank-blue-800 mb-3">{article.title}</h3>
-                <p className="text-gray-600 mb-4">{article.excerpt}</p>
+                <h3 className="text-xl font-bold text-bank-blue-900 mb-3">{article.title}</h3>
+                <p className="text-gray-800 mb-4">{article.excerpt}</p>
                 <div className="flex items-center justify-between">
-                  <span className="text-gray-500 text-sm">{article.date}</span>
+                  <span className="text-gray-700 text-sm">{article.date}</span>
                   <a href="#" className="text-bank-blue-600 hover:text-bank-blue-800 font-medium">Read More</a>
                 </div>
               </div>

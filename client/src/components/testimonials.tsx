@@ -29,8 +29,8 @@ export default function Testimonials() {
     <section className="py-20 bg-gradient-to-br from-white via-blue-50 to-green-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-bank-blue-800 mb-6">What Our Customers Say</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <h2 className="text-4xl font-bold text-bank-blue-900 mb-6">What Our Customers Say</h2>
+          <p className="text-xl text-gray-800 max-w-3xl mx-auto">
             Hear from satisfied customers who trust SecureBank for their financial needs.
           </p>
         </div>
@@ -45,7 +45,7 @@ export default function Testimonials() {
                   ))}
                 </div>
               </div>
-              <p className="text-gray-700 leading-relaxed mb-6">
+              <p className="text-gray-800 leading-relaxed mb-6">
                 "{testimonial.content}"
               </p>
               <div className="flex items-center">
@@ -55,8 +55,8 @@ export default function Testimonials() {
                   className="w-12 h-12 rounded-full mr-4"
                 />
                 <div>
-                  <div className="font-semibold text-bank-blue-800">{testimonial.name}</div>
-                  <div className="text-gray-600 text-sm">{testimonial.role}</div>
+                  <div className="font-semibold text-bank-blue-900">{testimonial.name}</div>
+                  <div className="text-gray-700 text-sm">{testimonial.role}</div>
                 </div>
               </div>
             </div>

@@ -70,19 +70,19 @@ export default function About() {
     <div className="bg-gradient-to-br from-white via-blue-50 to-green-50 py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h1 className="text-4xl font-bold text-bank-blue-800 mb-6">About SecureBank</h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <h1 className="text-4xl font-bold text-bank-blue-900 mb-6">About SecureBank</h1>
+          <p className="text-xl text-gray-800 max-w-3xl mx-auto">
             Founded on trust, innovation, and customer-first principles, we're committed to your financial success.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
           <div>
-            <h2 className="text-3xl font-bold text-bank-blue-800 mb-6">Our Mission</h2>
-            <p className="text-gray-600 leading-relaxed mb-6">
+            <h2 className="text-3xl font-bold text-bank-blue-900 mb-6">Our Mission</h2>
+            <p className="text-gray-800 leading-relaxed mb-6">
               To provide secure, innovative banking solutions that empower individuals and businesses to achieve their financial goals. We combine cutting-edge technology with personalized service to deliver exceptional banking experiences.
             </p>
-            <p className="text-gray-600 leading-relaxed">
+            <p className="text-gray-800 leading-relaxed">
               Since our founding, we've remained committed to building lasting relationships with our customers through transparency, integrity, and continuous innovation in financial services.
             </p>
           </div>
@@ -102,15 +102,15 @@ export default function About() {
               <div className={`text-4xl font-bold mb-2 ${index % 2 === 0 ? 'text-bank-blue-800' : 'text-green-600'}`}>
                 {stat.value}
               </div>
-              <div className="text-gray-600">{stat.label}</div>
+              <div className="text-gray-800">{stat.label}</div>
             </div>
           ))}
         </div>
 
         {/* Leadership Team */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-bank-blue-800 mb-6">Leadership Team</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <h2 className="text-3xl font-bold text-bank-blue-900 mb-6">Leadership Team</h2>
+          <p className="text-xl text-gray-800 max-w-3xl mx-auto">
             Meet the experienced professionals leading SecureBank's mission to transform banking.
           </p>
         </div>
@@ -123,17 +123,17 @@ export default function About() {
                 alt={`${leader.name} portrait`}
                 className="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
               />
-              <h3 className="text-xl font-bold text-bank-blue-800 mb-2">{leader.name}</h3>
-              <p className="text-green-600 mb-2">{leader.role}</p>
-              <p className="text-gray-600 text-sm">{leader.description}</p>
+              <h3 className="text-xl font-bold text-bank-blue-900 mb-2">{leader.name}</h3>
+              <p className="text-green-700 mb-2">{leader.role}</p>
+              <p className="text-gray-800 text-sm">{leader.description}</p>
             </div>
           ))}
         </div>
 
         {/* Branch Locations */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-bank-blue-800 mb-6">Branch Locations</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <h2 className="text-3xl font-bold text-bank-blue-900 mb-6">Branch Locations</h2>
+          <p className="text-xl text-gray-800 max-w-3xl mx-auto">
             Visit us at one of our convenient locations throughout the New York metropolitan area.
           </p>
         </div>
@@ -142,29 +142,29 @@ export default function About() {
           {branches.map((branch, index) => (
             <div key={index} className="bg-gradient-to-br from-blue-50 to-green-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
               <div className="p-6">
-                <h3 className="text-2xl font-bold text-bank-blue-800 mb-2">{branch.name}</h3>
+                <h3 className="text-2xl font-bold text-bank-blue-900 mb-2">{branch.name}</h3>
                 <div className="space-y-3 mb-6">
                   <div className="flex items-start">
                     <span className="text-green-600 font-semibold mr-2">📍</span>
-                    <span className="text-gray-700">{branch.address}</span>
+                    <span className="text-gray-800">{branch.address}</span>
                   </div>
                   <div className="flex items-center">
                     <span className="text-green-600 font-semibold mr-2">📞</span>
-                    <span className="text-gray-700">{branch.phone}</span>
+                    <span className="text-gray-800">{branch.phone}</span>
                   </div>
                   <div className="flex items-center">
                     <span className="text-green-600 font-semibold mr-2">🕒</span>
-                    <span className="text-gray-700">{branch.hours}</span>
+                    <span className="text-gray-800">{branch.hours}</span>
                   </div>
                   <div className="flex items-center">
                     <span className="text-green-600 font-semibold mr-2">👤</span>
-                    <span className="text-gray-700">Manager: {branch.manager}</span>
+                    <span className="text-gray-800">Manager: {branch.manager}</span>
                   </div>
                 </div>
                 
                 <div className="mb-6">
-                  <h4 className="text-lg font-semibold text-bank-blue-800 mb-2">Services Available</h4>
-                  <ul className="text-gray-600 space-y-1">
+                  <h4 className="text-lg font-semibold text-bank-blue-900 mb-2">Services Available</h4>
+                  <ul className="text-gray-800 space-y-1">
                     {branch.services.map((service, serviceIndex) => (
                       <li key={serviceIndex} className="flex items-center">
                         <span className="text-green-600 mr-2">•</span>

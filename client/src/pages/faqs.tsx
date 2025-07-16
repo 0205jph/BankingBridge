@@ -57,8 +57,8 @@ export default function FAQs() {
     <div className="bg-gradient-to-br from-green-50 via-white to-blue-50 py-20">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h1 className="text-4xl font-bold text-bank-blue-800 mb-6">Frequently Asked Questions</h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <h1 className="text-4xl font-bold text-bank-blue-900 mb-6">Frequently Asked Questions</h1>
+          <p className="text-xl text-gray-800 max-w-3xl mx-auto">
             Find comprehensive answers to all your banking questions and concerns.
           </p>
         </div>
@@ -68,7 +68,7 @@ export default function FAQs() {
           {faqCategories.map((category, index) => (
             <div key={index} className="bg-gradient-to-br from-blue-50 to-green-50 p-6 rounded-xl text-center">
               <category.icon className={`${category.color} w-12 h-12 mx-auto mb-4`} />
-              <h3 className="font-semibold text-bank-blue-800">{category.title}</h3>
+              <h3 className="font-semibold text-bank-blue-900">{category.title}</h3>
             </div>
           ))}
         </div>
@@ -81,7 +81,7 @@ export default function FAQs() {
                 onClick={() => toggleFAQ(index)}
                 className="w-full text-left p-6 flex items-center justify-between hover:bg-gray-50 transition-colors"
               >
-                <span className="text-lg font-semibold text-bank-blue-800">{faq.question}</span>
+                <span className="text-lg font-semibold text-bank-blue-900">{faq.question}</span>
                 <ChevronDown 
                   className={`w-6 h-6 text-green-600 transform transition-transform duration-200 ${
                     openIndex === index ? 'rotate-180' : ''
@@ -89,7 +89,7 @@ export default function FAQs() {
                 />
               </button>
               {openIndex === index && (
-                <div className="p-6 pt-0 text-gray-600 leading-relaxed">
+                <div className="p-6 pt-0 text-gray-800 leading-relaxed">
                   {faq.answer}
                 </div>
               )}

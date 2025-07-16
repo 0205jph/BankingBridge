@@ -63,8 +63,8 @@ export default function Products() {
     <div className="bg-gradient-to-br from-blue-50 via-white to-green-50 py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h1 className="text-4xl font-bold text-bank-blue-800 mb-6">Products & Services</h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <h1 className="text-4xl font-bold text-bank-blue-900 mb-6">Products & Services</h1>
+          <p className="text-xl text-gray-800 max-w-3xl mx-auto">
             Comprehensive banking solutions tailored to meet your personal and business financial needs.
           </p>
         </div>
@@ -75,9 +75,9 @@ export default function Products() {
               <div className={`${product.iconBg} w-16 h-16 rounded-2xl flex items-center justify-center mb-6`}>
                 <product.icon className="text-white w-8 h-8" />
               </div>
-              <h3 className="text-2xl font-bold text-bank-blue-800 mb-4">{product.title}</h3>
-              <p className="text-gray-600 mb-6">{product.description}</p>
-              <ul className="text-gray-600 space-y-2 mb-6">
+              <h3 className="text-2xl font-bold text-bank-blue-900 mb-4">{product.title}</h3>
+              <p className="text-gray-800 mb-6">{product.description}</p>
+              <ul className="text-gray-800 space-y-2 mb-6">
                 {product.features.map((feature, featureIndex) => (
                   <li key={featureIndex}>• {feature}</li>
                 ))}

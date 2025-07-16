@@ -35,8 +35,8 @@ export default function FAQSection() {
     <section className="py-20 bg-gradient-to-br from-blue-50 via-gray-50 to-green-50">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-bank-blue-800 mb-6">Frequently Asked Questions</h2>
-          <p className="text-xl text-gray-600">
+          <h2 className="text-4xl font-bold text-bank-blue-900 mb-6">Frequently Asked Questions</h2>
+          <p className="text-xl text-gray-800">
             Find answers to common questions about our banking services and account features.
           </p>
         </div>
@@ -48,7 +48,7 @@ export default function FAQSection() {
                 onClick={() => toggleFAQ(index)}
                 className="w-full text-left p-6 flex items-center justify-between hover:bg-gray-50 transition-colors"
               >
-                <span className="text-lg font-semibold text-bank-blue-800">{faq.question}</span>
+                <span className="text-lg font-semibold text-bank-blue-900">{faq.question}</span>
                 <ChevronDown 
                   className={`w-6 h-6 text-green-600 transform transition-transform duration-200 ${
                     openIndex === index ? 'rotate-180' : ''
@@ -56,7 +56,7 @@ export default function FAQSection() {
                 />
               </button>
               {openIndex === index && (
-                <div className="p-6 pt-0 text-gray-600 leading-relaxed">
+                <div className="p-6 pt-0 text-gray-800 leading-relaxed">
                   {faq.answer}
                 </div>
               )}

@@ -80,8 +80,8 @@ export default function Benefits() {
     <section id="benefits-section" className="py-20 bg-gradient-to-br from-green-50 via-white to-blue-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <h2 className="text-4xl font-bold text-bank-blue-800 mb-6">Why Choose SecureBank?</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <h2 className="text-4xl font-bold text-bank-blue-900 mb-6">Why Choose SecureBank?</h2>
+          <p className="text-xl text-gray-800 max-w-3xl mx-auto">
             Discover the advantages of banking with us and experience financial services that put your needs first.
           </p>
         </div>
@@ -102,8 +102,8 @@ export default function Benefits() {
               <div className={`${benefit.iconBg} w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transform transition-transform duration-300 hover:rotate-6 hover:scale-110`}>
                 <benefit.icon className="text-white w-8 h-8" />
               </div>
-              <h3 className="text-2xl font-bold text-bank-blue-800 mb-4 transition-colors duration-300 hover:text-green-600">{benefit.title}</h3>
-              <p className="text-gray-600 leading-relaxed">
+              <h3 className="text-2xl font-bold text-bank-blue-900 mb-4 transition-colors duration-300 hover:text-green-700">{benefit.title}</h3>
+              <p className="text-gray-800 leading-relaxed">
                 {benefit.description}
               </p>
             </div>

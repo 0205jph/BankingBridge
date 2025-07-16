@@ -1,6 +1,36 @@
 import { Shield, Headphones, Smartphone, Percent, Globe, Users } from "lucide-react";
+import { useState, useEffect } from "react";
 
 export default function Benefits() {
+  const [isVisible, setIsVisible] = useState(false);
+  const [visibleCards, setVisibleCards] = useState<number[]>([]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+            // Stagger the animation of cards
+            benefits.forEach((_, index) => {
+              setTimeout(() => {
+                setVisibleCards(prev => [...prev, index]);
+              }, index * 150);
+            });
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const benefitsSection = document.getElementById('benefits-section');
+    if (benefitsSection) {
+      observer.observe(benefitsSection);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   const benefits = [
     {
       icon: Shield,
@@ -47,9 +77,9 @@ export default function Benefits() {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section id="benefits-section" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <h2 className="text-4xl font-bold text-bank-blue-800 mb-6">Why Choose SecureBank?</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Discover the advantages of banking with us and experience financial services that put your needs first.
@@ -58,11 +88,21 @@ export default function Benefits() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {benefits.map((benefit, index) => (
-            <div key={index} className={`bg-gradient-to-br ${benefit.bgColor} p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300`}>
-              <div className={`${benefit.iconBg} w-16 h-16 rounded-2xl flex items-center justify-center mb-6`}>
+            <div 
+              key={index} 
+              className={`bg-gradient-to-br ${benefit.bgColor} p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 ${
+                visibleCards.includes(index) 
+                  ? 'opacity-100 translate-y-0' 
+                  : 'opacity-0 translate-y-10'
+              }`}
+              style={{ 
+                transitionDelay: visibleCards.includes(index) ? '0ms' : `${index * 150}ms`
+              }}
+            >
+              <div className={`${benefit.iconBg} w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transform transition-transform duration-300 hover:rotate-6 hover:scale-110`}>
                 <benefit.icon className="text-white w-8 h-8" />
               </div>
-              <h3 className="text-2xl font-bold text-bank-blue-800 mb-4">{benefit.title}</h3>
+              <h3 className="text-2xl font-bold text-bank-blue-800 mb-4 transition-colors duration-300 hover:text-green-600">{benefit.title}</h3>
               <p className="text-gray-600 leading-relaxed">
                 {benefit.description}
               </p>

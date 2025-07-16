@@ -1,0 +1,203 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(60, 4.8%, 95.9%);
+  --secondary-foreground: hsl(24, 9.8%, 10%);
+  --accent: hsl(60, 4.8%, 95.9%);
+  --accent-foreground: hsl(24, 9.8%, 10%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(20, 14.3%, 4.1%);
+  --radius: 0.5rem;
+
+  /* Banking color palette */
+  --bank-blue-50: hsl(214, 100%, 97%);
+  --bank-blue-100: hsl(214, 95%, 93%);
+  --bank-blue-500: hsl(217, 91%, 60%);
+  --bank-blue-600: hsl(221, 83%, 53%);
+  --bank-blue-700: hsl(224, 76%, 48%);
+  --bank-blue-800: hsl(226, 71%, 40%);
+  --bank-blue-900: hsl(224, 64%, 33%);
+  
+  --bank-green-50: hsl(151, 81%, 96%);
+  --bank-green-100: hsl(149, 80%, 90%);
+  --bank-green-300: hsl(160, 84%, 39%);
+  --bank-green-400: hsl(160, 84%, 39%);
+  --bank-green-500: hsl(160, 84%, 39%);
+  --bank-green-600: hsl(158, 64%, 52%);
+  --bank-green-700: hsl(158, 64%, 52%);
+  --bank-green-800: hsl(158, 64%, 52%);
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .bank-blue-50 {
+    background-color: var(--bank-blue-50);
+  }
+  .bank-blue-100 {
+    background-color: var(--bank-blue-100);
+  }
+  .bank-blue-500 {
+    background-color: var(--bank-blue-500);
+  }
+  .bank-blue-600 {
+    background-color: var(--bank-blue-600);
+  }
+  .bank-blue-700 {
+    background-color: var(--bank-blue-700);
+  }
+  .bank-blue-800 {
+    background-color: var(--bank-blue-800);
+  }
+  .bank-blue-900 {
+    background-color: var(--bank-blue-900);
+  }
+  
+  .bank-green-50 {
+    background-color: var(--bank-green-50);
+  }
+  .bank-green-100 {
+    background-color: var(--bank-green-100);
+  }
+  .bank-green-300 {
+    background-color: var(--bank-green-300);
+  }
+  .bank-green-400 {
+    background-color: var(--bank-green-400);
+  }
+  .bank-green-500 {
+    background-color: var(--bank-green-500);
+  }
+  .bank-green-600 {
+    background-color: var(--bank-green-600);
+  }
+  .bank-green-700 {
+    background-color: var(--bank-green-700);
+  }
+  .bank-green-800 {
+    background-color: var(--bank-green-800);
+  }
+  
+  .text-bank-blue-50 {
+    color: var(--bank-blue-50);
+  }
+  .text-bank-blue-100 {
+    color: var(--bank-blue-100);
+  }
+  .text-bank-blue-500 {
+    color: var(--bank-blue-500);
+  }
+  .text-bank-blue-600 {
+    color: var(--bank-blue-600);
+  }
+  .text-bank-blue-700 {
+    color: var(--bank-blue-700);
+  }
+  .text-bank-blue-800 {
+    color: var(--bank-blue-800);
+  }
+  .text-bank-blue-900 {
+    color: var(--bank-blue-900);
+  }
+  
+  .text-bank-green-50 {
+    color: var(--bank-green-50);
+  }
+  .text-bank-green-100 {
+    color: var(--bank-green-100);
+  }
+  .text-bank-green-300 {
+    color: var(--bank-green-300);
+  }
+  .text-bank-green-400 {
+    color: var(--bank-green-400);
+  }
+  .text-bank-green-500 {
+    color: var(--bank-green-500);
+  }
+  .text-bank-green-600 {
+    color: var(--bank-green-600);
+  }
+  .text-bank-green-700 {
+    color: var(--bank-green-700);
+  }
+  .text-bank-green-800 {
+    color: var(--bank-green-800);
+  }
+  
+  .hover\:bank-blue-600:hover {
+    background-color: var(--bank-blue-600);
+  }
+  .hover\:bank-blue-700:hover {
+    background-color: var(--bank-blue-700);
+  }
+  .hover\:bank-green-600:hover {
+    background-color: var(--bank-green-600);
+  }
+  .hover\:bank-green-700:hover {
+    background-color: var(--bank-green-700);
+  }
+  
+  .hover\:text-bank-blue-600:hover {
+    color: var(--bank-blue-600);
+  }
+  .hover\:text-bank-blue-800:hover {
+    color: var(--bank-blue-800);
+  }
+  .hover\:text-bank-green-600:hover {
+    color: var(--bank-green-600);
+  }
+  
+  .bg-bank-blue-50 {
+    background-color: var(--bank-blue-50);
+  }
+  .bg-bank-green-50 {
+    background-color: var(--bank-green-50);
+  }
+}

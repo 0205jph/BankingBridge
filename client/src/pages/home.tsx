@@ -1,6 +1,7 @@
 import Hero from "@/components/hero";
 import Benefits from "@/components/benefits";
-import FAQSection from "@/components/faq-section";
+import HeroHeader from "@/components/hero-header";
+import Features from "@/components/features";
 import Testimonials from "@/components/testimonials";
 
 export default function Home() {
@@ -8,7 +9,8 @@ export default function Home() {
     <div>
       <Hero />
       <Benefits />
-      <FAQSection />
+      <HeroHeader />
+      <Features />
       <Testimonials />
     </div>
   );

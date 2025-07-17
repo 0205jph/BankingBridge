@@ -6,31 +6,6 @@ export default function Benefits() {
   const [visibleItems, setVisibleItems] = useState<number[]>([]);
   const sectionRef = useRef<HTMLElement>(null);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-            // Stagger the animation of items
-            benefits.forEach((_, index) => {
-              setTimeout(() => {
-                setVisibleItems(prev => [...prev, index]);
-              }, index * 200);
-            });
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, [benefits]);
-
   const benefits = [
     {
       icon: Shield,
@@ -75,6 +50,31 @@ export default function Benefits() {
       bgGradient: "from-pink-50 to-pink-100"
     }
   ];
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+            // Stagger the animation of items
+            benefits.forEach((_, index) => {
+              setTimeout(() => {
+                setVisibleItems(prev => [...prev, index]);
+              }, index * 200);
+            });
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section ref={sectionRef} className="py-20 bg-gradient-to-br from-white via-gray-50 to-blue-50 relative overflow-hidden">

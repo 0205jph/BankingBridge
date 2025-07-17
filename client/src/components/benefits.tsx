@@ -1,10 +1,12 @@
-import { Shield, Headphones, Smartphone, Percent, Globe, Users } from "lucide-react";
+import { Shield, Headphones, Smartphone, Percent, Globe, Users, ChevronLeft, ChevronRight } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 
 export default function Benefits() {
   const [isVisible, setIsVisible] = useState(false);
-  const [visibleItems, setVisibleItems] = useState<number[]>([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   const benefits = [
     {
@@ -51,18 +53,28 @@ export default function Benefits() {
     }
   ];
 
+  // Auto-scroll functionality
+  useEffect(() => {
+    if (!isPaused && isVisible) {
+      intervalRef.current = setInterval(() => {
+        setCurrentIndex((prev) => (prev + 1) % benefits.length);
+      }, 15000); // 15 seconds
+    }
+
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
+  }, [isPaused, isVisible, benefits.length]);
+
+  // Intersection observer for visibility
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setIsVisible(true);
-            // Stagger the animation of items
-            benefits.forEach((_, index) => {
-              setTimeout(() => {
-                setVisibleItems(prev => [...prev, index]);
-              }, index * 200);
-            });
           }
         });
       },
@@ -76,8 +88,25 @@ export default function Benefits() {
     return () => observer.disconnect();
   }, []);
 
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % benefits.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev - 1 + benefits.length) % benefits.length);
+  };
+
+  const goToSlide = (index: number) => {
+    setCurrentIndex(index);
+  };
+
   return (
-    <section ref={sectionRef} className="py-20 bg-gradient-to-br from-white via-gray-50 to-blue-50 relative overflow-hidden">
+    <section 
+      ref={sectionRef} 
+      className="py-20 bg-gradient-to-br from-white via-gray-50 to-blue-50 relative overflow-hidden"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
       {/* Background decorative elements */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-10 w-72 h-72 bg-blue-200/20 rounded-full blur-3xl"></div>
@@ -85,70 +114,117 @@ export default function Benefits() {
       </div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className={`text-center mb-20 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div className={`text-center mb-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <h2 className="text-5xl font-bold text-bank-blue-900 mb-6">Why Choose SecureBank?</h2>
           <p className="text-xl text-gray-800 max-w-3xl mx-auto">
             Discover the advantages of banking with us and experience financial services that put your needs first.
           </p>
         </div>
 
-        <div className="space-y-24">
-          {benefits.map((benefit, index) => (
-            <div 
-              key={index} 
-              className={`flex flex-col lg:flex-row items-center gap-12 ${
-                index % 2 === 1 ? 'lg:flex-row-reverse' : ''
-              } transition-all duration-1000 ${
-                visibleItems.includes(index) 
-                  ? 'opacity-100 translate-y-0' 
-                  : 'opacity-0 translate-y-20'
-              }`}
-            >
-              {/* Icon and Visual Element */}
-              <div className="flex-1 flex justify-center">
-                <div className="relative">
-                  {/* Large background circle */}
-                  <div className={`w-80 h-80 bg-gradient-to-br ${benefit.bgGradient} rounded-full flex items-center justify-center relative`}>
-                    {/* Gradient overlay */}
-                    <div className={`absolute inset-0 bg-gradient-to-br ${benefit.gradient} opacity-10 rounded-full`}></div>
-                    
-                    {/* Icon container */}
-                    <div className={`w-32 h-32 bg-gradient-to-br ${benefit.gradient} rounded-full flex items-center justify-center shadow-2xl transform transition-all duration-500 hover:scale-110 hover:rotate-6`}>
-                      <benefit.icon className="text-white w-16 h-16" />
-                    </div>
-                    
-                    {/* Decorative rings */}
-                    <div className="absolute inset-0 border-2 border-white/30 rounded-full"></div>
-                    <div className="absolute inset-4 border border-white/20 rounded-full"></div>
-                  </div>
-                  
-                  {/* Floating elements */}
-                  <div className={`absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-br ${benefit.gradient} rounded-full opacity-20 animate-pulse`}></div>
-                  <div className={`absolute -bottom-4 -left-4 w-12 h-12 bg-gradient-to-br ${benefit.gradient} rounded-full opacity-30 animate-pulse`} style={{animationDelay: '0.5s'}}></div>
-                </div>
-              </div>
+        {/* Carousel Container */}
+        <div className="relative">
+          {/* Navigation Buttons */}
+          <button
+            onClick={prevSlide}
+            className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/90 hover:bg-white text-bank-blue-900 p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </button>
+          
+          <button
+            onClick={nextSlide}
+            className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/90 hover:bg-white text-bank-blue-900 p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
 
-              {/* Content */}
-              <div className="flex-1 text-center lg:text-left">
-                <h3 className="text-4xl font-bold text-bank-blue-900 mb-6 leading-tight">
-                  {benefit.title}
-                </h3>
-                <p className="text-xl text-gray-800 leading-relaxed mb-8">
-                  {benefit.description}
-                </p>
-                
-                {/* Call to action */}
-                <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                  <button className={`bg-gradient-to-r ${benefit.gradient} text-white px-8 py-3 rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105`}>
-                    Learn More
-                  </button>
-                  <button className="border-2 border-bank-blue-800 text-bank-blue-800 hover:bg-bank-blue-800 hover:text-white px-8 py-3 rounded-full font-semibold text-lg transition-all duration-300">
-                    Get Started
-                  </button>
+          {/* Carousel Content */}
+          <div className="overflow-hidden">
+            <div 
+              className="flex transition-transform duration-700 ease-in-out"
+              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+            >
+              {benefits.map((benefit, index) => (
+                <div 
+                  key={index} 
+                  className="w-full flex-shrink-0 px-8"
+                >
+                  <div className={`flex flex-col lg:flex-row items-center gap-12 ${
+                    index % 2 === 1 ? 'lg:flex-row-reverse' : ''
+                  } transition-all duration-1000 opacity-100 translate-y-0`}>
+                    {/* Icon and Visual Element */}
+                    <div className="flex-1 flex justify-center">
+                      <div className="relative">
+                        {/* Large background circle */}
+                        <div className={`w-80 h-80 bg-gradient-to-br ${benefit.bgGradient} rounded-full flex items-center justify-center relative`}>
+                          {/* Gradient overlay */}
+                          <div className={`absolute inset-0 bg-gradient-to-br ${benefit.gradient} opacity-10 rounded-full`}></div>
+                          
+                          {/* Icon container */}
+                          <div className={`w-32 h-32 bg-gradient-to-br ${benefit.gradient} rounded-full flex items-center justify-center shadow-2xl transform transition-all duration-500 hover:scale-110 hover:rotate-6`}>
+                            <benefit.icon className="text-white w-16 h-16" />
+                          </div>
+                          
+                          {/* Decorative rings */}
+                          <div className="absolute inset-0 border-2 border-white/30 rounded-full"></div>
+                          <div className="absolute inset-4 border border-white/20 rounded-full"></div>
+                        </div>
+                        
+                        {/* Floating elements */}
+                        <div className={`absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-br ${benefit.gradient} rounded-full opacity-20 animate-pulse`}></div>
+                        <div className={`absolute -bottom-4 -left-4 w-12 h-12 bg-gradient-to-br ${benefit.gradient} rounded-full opacity-30 animate-pulse`} style={{animationDelay: '0.5s'}}></div>
+                      </div>
+                    </div>
+
+                    {/* Content */}
+                    <div className="flex-1 text-center lg:text-left">
+                      <h3 className="text-4xl font-bold text-bank-blue-900 mb-6 leading-tight">
+                        {benefit.title}
+                      </h3>
+                      <p className="text-xl text-gray-800 leading-relaxed mb-8">
+                        {benefit.description}
+                      </p>
+                      
+                      {/* Call to action */}
+                      <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <button className={`bg-gradient-to-r ${benefit.gradient} text-white px-8 py-3 rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105`}>
+                          Learn More
+                        </button>
+                        <button className="border-2 border-bank-blue-800 text-bank-blue-800 hover:bg-bank-blue-800 hover:text-white px-8 py-3 rounded-full font-semibold text-lg transition-all duration-300">
+                          Get Started
+                        </button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              ))}
             </div>
-          ))}
+          </div>
+
+          {/* Pagination Dots */}
+          <div className="flex justify-center mt-12 space-x-3">
+            {benefits.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  index === currentIndex 
+                    ? 'bg-bank-blue-900 scale-125' 
+                    : 'bg-gray-300 hover:bg-gray-400'
+                }`}
+              />
+            ))}
+          </div>
+
+          {/* Progress Bar */}
+          <div className="mt-6 max-w-md mx-auto">
+            <div className="w-full bg-gray-200 rounded-full h-1">
+              <div 
+                className="bg-gradient-to-r from-bank-blue-600 to-green-600 h-1 rounded-full transition-all duration-300"
+                style={{ width: `${((currentIndex + 1) / benefits.length) * 100}%` }}
+              ></div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
